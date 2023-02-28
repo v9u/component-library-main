@@ -1,0 +1,168 @@
+import { Meta, Story, Canvas, ArgsTable,Preview } from '@storybook/addon-docs/blocks'
+import ElAvatar from '../'
+import '../../theme-chalk/src/avatar.scss'
+
+<Meta title='DHNUIDOCS/Avatar 头像' argTypes={{
+  size: { control: { type: 'select', options: ['small', 'medium', 'large'] }},
+}} />
+
+
+export const Template  = (args) => ({
+  setup () {
+    return {
+      args
+    }
+  },
+  components: { ElAvatar },
+  template: `
+    <div style="width:40px;height:40px">
+      <el-avatar v-bind="args" @error="errorHandler">
+      <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"/>
+      </el-avatar>
+      </div>
+  `,
+  methods:{
+    errorHandler(){
+      return true
+    }
+  }
+})
+
+
+
+
+# Avatar 头像
+
+
+#### 基本使用说明
+
+<Preview>
+    
+    <Story name='basic' args={{
+      src:'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
+      size:'small'
+    }}>
+    { Template.bind({})}
+  </Story>
+      <Story name='basic1' args={{
+      src:'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
+      size:'medium'
+    }}>
+    { Template.bind({})}
+  </Story>
+      <Story name='basic2' args={{
+      src:'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
+      size:'large'
+    }}>
+    { Template.bind({})}
+  </Story>
+    <Story name='basic3' args={{
+      src:'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
+      size:'large',
+      shape:"square"
+    }}>
+    { Template.bind({})}
+  </Story>
+      <Story name='basic4' args={{
+      src:'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
+      size:70,
+      shape:"square"
+    }}>
+    { Template.bind({})}
+  </Story>
+  
+</Preview>
+
+```javascript
+<template>
+   <div style="width:40px;height:40px">
+      <el-avatar :src="src" size="small"></el-avatar>
+    </div>
+    <div style="width:40px;height:40px">
+      <el-avatar :src="src" size="medium"></el-avatar>
+    </div>
+    <div style="width:40px;height:40px">
+      <el-avatar :src="src" size="large"></el-avatar>
+    </div>
+    <div style="width:40px;height:40px">
+      <el-avatar :src="src" size="large" shape="square"></el-avatar>
+    </div>
+    <el-avatar :src="src" :size="70" :shape="'square'"></el-avatar>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+        src:"https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
+      }
+    }
+  }
+</script>
+```
+
+Avatar组件使用时 size为 "large", "medium", "small"时需要外层的容器，例如div 来提供一个宽高
+
+
+
+
+
+
+#### 图片加载失败的 fallback 行为
+
+当展示类型为图片的时候，图片加载失败的 fallback 行为
+
+<Preview>
+    
+    <Story name='basic5' args={{
+      src:'',
+      size:70
+    }}>
+    { Template.bind({})}
+  </Story>
+</Preview>
+
+```javascript
+<template>
+    <c-dhn-avatar  :src="src" :size="70" @error="errorHandler">
+      <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"/>
+    </c-dhn-avatar>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+        src:""
+      }
+    },
+    methods: {
+      errorHandler() {
+        return true
+      }
+    }
+  }
+</script>
+```
+
+
+
+
+
+
+### 动态参数
+
+动态参数调试你可以 跳转
+
+[Go to Avatar动态参数调试](?path=/docs/dhnui-avatar--index)
+
+[^_^]:<ArgsTable story="basic"/> 
+
+### 参数说明
+
+<ArgsTable of={CDhnAvatar}/>
+
+
+
+@error 回调函数 在图片src加载 失败时 会执行该回调，并且加载插槽slot的内容
+
+
+

@@ -1,0 +1,32 @@
+{
+    "name": "dhn-theme-chalk",
+    "version": "0.0.0",
+    "description": "dhn component chalk theme.",
+    "main": "lib/index.css",
+    "style": "lib/index.css",
+    "files": [
+      "lib",
+      "src"
+    ],
+    "scripts": {
+      "build": "gulp build"
+    },
+    "keywords": [
+      "dhn",
+      "theme"
+    ],
+    "author": "peng.luo@asiainnovations.com>",
+    "license": "MIT",
+    "devDependencies": {
+      "gulp": "^4.0.2",
+      "gulp-autoprefixer": "^7.0.1",
+      "gulp-cssmin": "^0.2.0",
+      "gulp-dart-sass": "^1.0.2",
+      "gulp-rename": "^2.0.0"
+    },
+    "dependencies": {}
+  }
+  
+  
+  
+  

@@ -1,0 +1,162 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import Code from './assets/code-brackets.svg'
+import Colors from './assets/colors.svg'
+import Comments from './assets/comments.svg'
+import Direction from './assets/direction.svg'
+import Flow from './assets/flow.svg'
+import Plugin from './assets/plugin.svg'
+import Repo from './assets/repo.svg'
+import StackAlt from './assets/stackalt.svg'
+
+<Meta title="DHNUIDOCS/介绍" />
+
+
+
+# DHN活动组的组件库 基于vue3.0 
+
+目前只支持npm或者yarn的方式安装，能更好的和webpack配合使用。
+```javascript
+npm i c-dhn-act -S
+yarn add c-dhn-act -S
+```
+
+## 快速上手 引入c-dhn-act
+你可以引入整个 c-dhn-act，或是根据需要仅引入部分组件。
+
+我们先介绍如何引入完整的 c-dhn-act。
+#### 完整引入
+在入口main.js 中写入以下内容：
+```javascript
+import { createApp } from 'vue'
+import CDhnAct from 'c-dhn-act'
+import 'c-dhn-act/lib/theme-chalk/index.css'
+import App from './App.vue'
+
+const app = createApp(App)
+app.use(CDhnAct)
+app.mount('#app')
+```
+以上代码便完成了 c-dhn-act 的引入。需要注意的是，样式文件需要单独引入。
+#### 按需引入
+借助 [** babel-plugin-import**](https://github.com/ant-design/babel-plugin-import)，我们可以只引入需要的组件，以达到减小项目体积的目的。
+
+
+首先，安装 babel-plugin-import:
+```
+npm install babel-plugin-import -D
+```
+或
+```
+yarn add babel-plugin-import -D
+```
+然后，找到对应的babel配置 进行插件添加，例如vue-cli@4.5 初始化出来的项目， 找到babel.config.js文件，找到插件plugins位置 添加:
+
+```javascript
+module.exports = {
+  presets: [
+    '@vue/cli-plugin-babel/preset'
+  ],
+  plugins: [
+    [
+      'import',
+      {
+        libraryName: 'c-dhn-act',
+        customStyleName: (name) => {
+          return `c-dhn-act/lib/theme-chalk/${name}.css`
+        }
+      }
+    ]
+  ]
+}
+
+```
+这样按需加载的配置就完成了。
+接下来，如果你只希望引入部分组件，比如 CDhnDateCountdown 和 CDhnText，那么需要在 main.js 中写入以下内容：
+```javascript
+import { createApp } from 'vue'
+import { CDhnDateCountdown, CDhnText } from 'c-dhn-act'
+import App from './App.vue'
+
+
+const app = createApp(App)
+app.use(CDhnDateCountdown).use(CDhnText)
+/* or
+ * app.component(CDhnDateCountdown.name, CDhnDateCountdown)
+ * app.component(CDhnText.name, CDhnText)
+ */
+
+
+
+app.mount('#app')
+
+```
+
+#### 完整组件列表和按需引入方式 
+```javascript
+import { createApp } from 'vue'
+import App from './App.vue'
+
+import {
+  CDhnAvatar,
+  CDhnCol,
+  CDhnContainer,
+  CDhnDateCountdown,
+  CDhnInfiniteScroll,
+  CDhnRow,
+  CDhnSeamlessScroll,
+  CDhnTabPane,
+  CDhnTabs,
+  CDhnSwiper,
+  CDhnText,
+  CDhnModal,
+  CDhnLottie,
+  CDhnVap,
+  CDhnWheel,
+  CDhnAsyncImg
+} from 'c-dhn-act'
+
+
+const useList = [
+  CDhnDateCountdown,
+  CDhnAvatar,
+  CDhnCol,
+  CDhnContainer,
+  CDhnRow,
+  CDhnText,
+  CDhnTabs,
+  CDhnSwiper,
+  CDhnTabPane,
+  CDhnSeamlessScroll,
+  CDhnInfiniteScroll,
+  CDhnModal,
+  CDhnLottie,
+  CDhnVap,
+  CDhnWheel,
+  CDhnAsyncImg
+]
+
+const app = createApp(App)
+
+useList.forEach(item => {
+  app.use(item)
+})
+```
+
+
+
+
+
+#### 开始使用
+至此，一个基于 Vue 和 c-dhn-act 的开发环境已经搭建完毕，现在就可以编写代码了。
+
+各个组件的使用方法请参阅它们各自的文档。
+
+
+
+
+
+
+<div className="tip-wrapper">
+  <span className="tip">Tip</span>Edit the Markdown in{' '}
+  <code>src/stories/Introduction.stories.mdx</code>
+</div>

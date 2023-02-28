@@ -1,0 +1,11 @@
+import CDhn{{properCase name}} from './src/{{name}}.vue'
+import { App } from 'vue'
+import type { SFCWithInstall } from '../utils/types'
+
+CDhn{{properCase name}}.install = (app: App): void => {
+  app.component(CDhn{{properCase name}}.name, CDhn{{properCase name}})
+}
+
+const _CDhn{{properCase name}}: SFCWithInstall<typeof CDhn{{properCase name}}> = CDhn{{properCase name}}
+
+export default _CDhn{{properCase name}}

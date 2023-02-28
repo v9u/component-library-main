@@ -1,0 +1,30 @@
+.huge-list {
+  position: relative;
+  overflow: auto;
+  padding: 0 10px;
+  min-height: 50px;
+  height: 100%;
+  .list-phantom {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: -1;
+  }
+  .list-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding-left: 0;
+    li {
+      list-style: none;
+      &:hover {
+        background-color: #f9fafc;
+      }
+    }
+  }
+  .no-data {
+    text-align: center;
+  }
+}

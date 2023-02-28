@@ -1,0 +1,45 @@
+.check-box {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .box {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #dcdfe6;
+    cursor: pointer;
+    &:hover {
+      border-color: #409eff;
+    }
+    &::after {
+      content: '\2713';
+      position: absolute;
+      left: 0px;
+      top: -5px;
+      transform: scale(0);
+    }
+    // 子元素部分选中
+    &.is-part-checked::after {
+      content: '-';
+      left: 0px;
+      top: -7px;
+    }
+    &.is-checked,
+    &.is-part-checked {
+      border-color: #409eff;
+      color: #409eff;
+      &::after {
+        transform: scale(0.9);
+      }
+    }
+    &.is-disabled {
+      background: #f2f6fc;
+      color: #c0c4cc;
+      border-color: #c0c4cc;
+      &::after {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

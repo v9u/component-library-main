@@ -1,0 +1,19 @@
+import CDhn{{properCase name}} from '../'
+
+export default {
+  title: 'DHNUI/{{properCase name}}',
+  component: CDhn{{properCase name}}
+}
+
+
+export const Index = () => ({
+  setup() {
+    return {  };
+  },
+  components: { CDhn{{properCase name}} },
+  template: `
+    <div>
+       <c-dhn-{{name}} v-bind="args"></c-dhn-{{name}}>
+    </div>
+  `,
+});

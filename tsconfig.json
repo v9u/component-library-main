@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "module": "ESNext",//指定使用的模块标准
+      "declaration": true,// 生成声明文件，开启后会自动生成声明文件
+      "noImplicitAny": false,// 不允许隐式的any类型
+      "strict":true,// 开启所有严格的类型检查
+      "removeComments": true,// 删除注释 
+      "moduleResolution": "node", //模块解析规则 classic和node的区别   https://segmentfault.com/a/1190000021421461
+      //node模式下，非相对路径模块 直接去node_modelus下查找类型定义.ts 和补充声明.d.ts
+      //node模式下相对路径查找 逐级向上查找 当在node_modules中没有找到，就会去tsconfig.json同级目录下的typings目录下查找.ts或 .d.ts补充类型声明
+      //例如我们这里的.vue模块的  类型补充(.ts 文件不认识.vue模块, 需要我们来定义.vue模块的类型)
+      "esModuleInterop": true,//实现CommonJS和ES模块之间的互操作性。抹平两种规范的差异
+      "jsx": "preserve",//如果写jsx了，保持jsx 的输出，方便后续babel或者rollup做二次处理
+      "noLib": false,
+      "target": "es6", //编译之后版本
+      "sourceMap": true, //生成
+      "lib": [ //包含在编译中的库
+        "ESNext", "DOM"
+      ],
+      "allowSyntheticDefaultImports": true, //用来指定允许从没有默认导出的模块中默认导入
+    },
+    "exclude": [ //排除
+      "node_modules"
+    ],
+
+}
+   

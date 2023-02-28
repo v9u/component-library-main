@@ -1,0 +1,30 @@
+<template>
+  <div>
+    <div @click="handleClick">tem</div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+interface I{{properCase name}}Props {
+
+}
+export default defineComponent({
+  name: 'CDhn{{properCase name}}',
+  setup(props: I{{properCase name}}Props, { emit }) {
+    //methods
+    const handleClick = evt => {
+      alert('tem')
+    }
+
+    return {
+      handleClick,
+    }
+  }
+})
+</script>
+
+<style  lang="scss">
+</style>
+
+

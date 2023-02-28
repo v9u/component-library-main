@@ -1,0 +1,12 @@
+{
+  "name": "c-dhn-act",
+  "version": "1.0.22",
+  "description": "c-dhn-act component",
+  "author": "peng.luo@asiainnovations.com>",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "style": "lib/theme-chalk/index.css",
+  "typings": "lib/index.d.ts",
+  "keywords": [],
+  "license": "MIT"
+}
